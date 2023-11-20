@@ -1,8 +1,8 @@
 # Configurações de conexão
 db_params = {
     host: 'localhost',
-    dbname: 'forward_car',
+    dbname: 'desafio_ruby',
     user: 'postgres',
-    password: '',
+    password: '1234',
     port: '5432'
 }
