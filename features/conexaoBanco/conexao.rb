@@ -1,8 +1,5 @@
-# Configurações de conexão
-db_params = {
-    host: 'localhost',
-    dbname: 'desafio_ruby',
-    user: 'postgres',
-    password: '1234',
-    port: '5432'
-}
+class ConexaoBanco
+    def conexao
+        Sequel.connect(adapter: 'postgres', database: 'desafio_ruby', user: 'postgres', password: '1234', host: 'localhost')
+    end
+end

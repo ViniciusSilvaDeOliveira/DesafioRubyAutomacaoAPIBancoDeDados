@@ -6,6 +6,8 @@ require 'pry'
 #require 'activerecord'
 require 'sequel'
 require 'pg'
+require "uri"
+require "json"
 
 require_relative 'pageHelper'
 

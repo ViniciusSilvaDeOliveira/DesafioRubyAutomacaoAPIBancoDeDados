@@ -1,5 +1,9 @@
 module PageHelpers
   def metodos_api
-    MethodApi.new
+    MethodAPI.new
+  end
+
+  def conexao_banco
+    ConexaoBanco.new
   end
 end

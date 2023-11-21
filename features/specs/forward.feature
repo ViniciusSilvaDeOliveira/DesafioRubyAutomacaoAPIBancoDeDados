@@ -7,11 +7,14 @@ Funcionalidade: Testar os metodos da API
     Para atestar que dados são manipulados no banco de dados
 
     @CT001
-    Cenario: Realizar login
+    Cenario: Realizar cadastro
         Dado ter a massa de dados
-        Quando envio as informacoes de login
-        Entao valido que o login foi realizado com sucesso
+        Quando envio as informacoes de cadastro
+        Entao valido que o cadastro foi realizado com sucesso
 
     @CT002
-    Cenario:
+    Cenario: Realizar login
+        Dado ter um usuario cadastrado
+        Quando envio as informações de login
+        Entao valido que o login foi realizado com sucesso
     

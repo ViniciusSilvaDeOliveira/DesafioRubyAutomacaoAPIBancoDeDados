@@ -8,3 +8,5 @@ gem 'faker'
 gem 'activerecord'
 gem 'sequel'
 gem 'pg'
+gem "uri"
+gem "json"
