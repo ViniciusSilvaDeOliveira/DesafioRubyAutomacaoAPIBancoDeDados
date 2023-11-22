@@ -7,4 +7,9 @@ class MethodAPI
         response = HTTParty.post(url, :headers => {"Content-Type" => "application/json"},
                                       :body => body.to_json)
     end
+
+    def realizar_emprestimo(url, body, token)
+        response = HTTParty.post(url, :headers => {"Authorization" => "Bearer #{token}"},
+                                      :body => body.to_json)
+    end
 end
