@@ -12,4 +12,12 @@ class MethodAPI
         response = HTTParty.post(url, :headers => {"Authorization" => "Bearer #{token}"},
                                       :body => body.to_json)
     end
+
+    def consultar_emprestimo(url, token)
+        response = HTTParty.get(url, :headers => {"Authorization" => "Bearer #{token}"})
+    end
+
+    def consultar_historico(url, token)
+        response = HTTParty.get(url, :headers => {"Authorization" => "Bearer #{token}"})
+    end
 end

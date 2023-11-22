@@ -25,4 +25,20 @@ Funcionalidade: Testar os metodos da API
         E tenho a massa de emprestimo
         Quando envio essas informacoes de emprestimo
         Entao valido que o emprestimo foi realizado com sucesso
+
+    @CT004
+    Cenario: Consultar emprestimo
+        Dado ter um usuario cadastrado
+        Quando envio as informações de login
+        E tenho a massa de emprestimo
+        Quando envio essas informacoes de emprestimo
+        E realizo a consulta de um emprestimo
+        Entao valido a consulta do emprestimo
+
+    @CT005
+    Cenario: Cadastrar carros
+        Dado ter um usuario cadastrado
+        Quando envio as informações de login
+        E realizo a consulta do relatorio de historico do veiculo
+        Entao valido a consulta do historico
     
