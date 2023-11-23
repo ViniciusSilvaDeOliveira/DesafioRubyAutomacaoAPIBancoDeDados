@@ -10,7 +10,7 @@ class MethodAPI
 
     def realizar_emprestimo(url, body, token)
         response = HTTParty.post(url, :headers => {"Authorization" => "Bearer #{token}"},
-                                      :body => body.to_json)
+                                      :body => body)
     end
 
     def consultar_emprestimo(url, token)

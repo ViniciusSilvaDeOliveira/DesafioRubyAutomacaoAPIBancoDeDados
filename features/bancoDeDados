@@ -14,7 +14,7 @@ CREATE TABLE login(
 )
 
 INSERT INTO login(USERNAME, PASSWORD1)	
-	VALUES('ana', '1234')
+	VALUES('ana12', '1234')
 
 CREATE TABLE emprestimo(
 	firstName VARCHAR(100),

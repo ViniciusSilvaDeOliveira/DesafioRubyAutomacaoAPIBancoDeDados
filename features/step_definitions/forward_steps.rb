@@ -1,6 +1,6 @@
 #CT001
-Dado("ter a massa de dados") do
-  #DB = Sequel.connect(adapter: 'postgres', database: 'desafio_ruby', user: 'postgres', password: '1234', host: 'localhost')
+Dado("ter a massa de dados e enviar a requisicao") do
+  @url = "http://localhost:3434/cars-app/register"
   results = conexao_banco.conexao[:registro].all
 
   results.each do |row|
@@ -10,13 +10,11 @@ Dado("ter a massa de dados") do
       "username": row[:username],
       "password": row[:password1],
     }
+
+    sleep(2)
+    @response = []
+    @response = metodos_api.criar_usuario(@url, @massa)
   end
-
-  @url = "http://localhost:3434/cars-app/register"
-end
-
-Quando("envio as informacoes de cadastro") do
-  @response = metodos_api.criar_usuario(@url, @massa)
 end
 
 Entao("valido que o cadastro foi realizado com sucesso") do
@@ -38,7 +36,6 @@ Dado("ter um usuario cadastrado") do
 end
 
 Quando("envio as informações de login") do
-  #binding.pry
   @response = metodos_api.realizar_login(@url, @massa)
   @access_token = @response["access_token"]
 end
@@ -48,34 +45,33 @@ Entao("valido que o login foi realizado com sucesso") do
 end
 
 #CT003
-Quando("tenho a massa de emprestimo") do
+E("tenho a massa de emprestimo e enviou a requisicao") do
+  @url = "http://localhost:3434/cars-app/api/loanApp"
   result = conexao_banco.conexao[:emprestimo].all
   result.each do |row|
     @massa = {
-      "firstName": row[:firstName],
-      "lastName": row[:lastName],
+      "firstName": row[:firstname],
+      "lastName": row[:lastname],
       "address1": row[:address1],
       "city": row[:city],
-      "state": row[:state],
+      "state": row[:state1],
       "zip": row[:zip],
       "country": row[:country],
       "dob": row[:dob],
       "ssn": row[:ssn],
       "employer": row[:employer],
-      "phoneNumber": row[:phoneNumber],
-      "durationOfJob": row[:durationOfJob],
+      "phoneNumber": row[:phonenumber],
+      "durationOfJob": row[:durationofjob],
       "income": row[:income],
-      "loanTerm": row[:loanTerm],
-      "loanAmount": row[:loanAmount],
-      "validateAddress": row[:validateAddress],
+      "loanTerm": row[:loanterm],
+      "loanAmount": row[:loanamount],
+      "validateAddress": row[:validateaddress],
     }
-  end
 
-  @url = "http://localhost:3434/cars-app/api/loanApp"
-end
-
-Quando("envio essas informacoes de emprestimo") do
+  sleep(2)
+  @response = []
   @response = metodos_api.realizar_emprestimo(@url, @massa, @access_token)
+  end
 end
 
 Entao("valido que o emprestimo foi realizado com sucesso") do
@@ -89,8 +85,11 @@ Quando("realizo a consulta de um emprestimo") do
 end
 
 Entao("valido a consulta do emprestimo") do
+  puts @response.body
   expect(@response.code).to eql(200)
-  expect(@response.body).to include("id")
+  expect(@response.body).to include("id")  
+  expect(@response.body).to include("Junior")
+  expect(@response.body).to include("Lisa")
 end
 
 #CT005

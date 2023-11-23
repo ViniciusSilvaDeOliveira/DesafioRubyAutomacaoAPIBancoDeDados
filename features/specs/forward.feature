@@ -8,8 +8,7 @@ Funcionalidade: Testar os metodos da API
 
     @CT001
     Cenario: Realizar cadastro
-        Dado ter a massa de dados
-        Quando envio as informacoes de cadastro
+        Dado ter a massa de dados e enviar a requisicao
         Entao valido que o cadastro foi realizado com sucesso
 
     @CT002
@@ -22,16 +21,14 @@ Funcionalidade: Testar os metodos da API
     Cenario: Realizar emprestimo
         Dado ter um usuario cadastrado
         Quando envio as informações de login
-        E tenho a massa de emprestimo
-        Quando envio essas informacoes de emprestimo
+        E tenho a massa de emprestimo e enviou a requisicao
         Entao valido que o emprestimo foi realizado com sucesso
 
     @CT004
     Cenario: Consultar emprestimo
         Dado ter um usuario cadastrado
         Quando envio as informações de login
-        E tenho a massa de emprestimo
-        Quando envio essas informacoes de emprestimo
+        E tenho a massa de emprestimo e enviou a requisicao
         E realizo a consulta de um emprestimo
         Entao valido a consulta do emprestimo
 
