@@ -101,3 +101,4 @@ end
 Entao('valido a consulta do historico') do
     expect(@response.code).to eql(200)
 end
+
